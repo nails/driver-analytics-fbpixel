@@ -1,0 +1,48 @@
+{
+    "name": "nails/driver-analytics-fbpixel",
+    "homepage": "http://nailsapp.co.uk/modules/analytics/driver/fbpixel",
+    "description": "This is the \"Facebook Pixel\" driver for the Nails Analytics module.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pablo de la Pena",
+            "email": "p@nailsapp.co.uk",
+            "homepage": "http://nailsapp.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "hello@nailsapp.co.uk"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "nails\/module-analytics": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.*",
+        "phpstan/phpstan": "0.*"
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit",
+        "analyse": "./vendor/bin/phpstan analyse -c .phpstan/config.neon"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nails\\Analytics\\Driver\\": "src/",
+            "Nails\\Analytics\\Driver\\FbPixel\\": "src/"
+        }
+    },
+    "extra": {
+        "nails": {
+            "name": "Facebook Pixel",
+            "type": "driver",
+            "forModule": "nails/module-analytics",
+            "namespace": "Nails\\Analytics\\Driver\\FbPixel\\",
+            "data": {
+                "namespace": "Nails\\Analytics\\Driver\\",
+                "class": "FbPixel"
+            }
+        }
+    }
+}
