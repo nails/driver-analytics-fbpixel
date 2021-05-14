@@ -25,8 +25,6 @@ jobs:
 
             -   name: Run tests
                 run: composer test
-                env:
-                    PRIVATE_KEY: 123abc
 
             -   name: PHPStan Static Analysis
                 run: composer analyse
