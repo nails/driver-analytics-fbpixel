@@ -20,7 +20,7 @@
         "nails\/module-analytics": "dev-develop"
     },
     "require-dev": {
-        "phpunit/phpunit": "10.*",
+        "phpunit/phpunit": "13.*",
         "phpstan/phpstan": "2.*",
         "nails\/module-admin": "dev-develop"
     },
