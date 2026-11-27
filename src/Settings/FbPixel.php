@@ -2,7 +2,7 @@
 
 namespace Nails\Analytics\Driver\FbPixel\Settings;
 
-use Nails\Admin\Traits;
+use Nails\Analytics\Driver\FbPixel\Admin\Permission;
 use Nails\Common\Helper\Form;
 use Nails\Common\Interfaces;
 use Nails\Components\Setting;
@@ -11,10 +11,6 @@ use Nails\Factory;
 
 class FbPixel implements Interfaces\Component\Settings
 {
-    use Traits\Settings\Permission;
-
-    // --------------------------------------------------------------------------
-
     const KEY_PROFILE_ID   = 'profile_id';
     const KEY_ENVIRONMENTS = 'environments';
 
@@ -33,9 +29,9 @@ class FbPixel implements Interfaces\Component\Settings
     /**
      * @inheritDoc
      */
-    public function getPermissions(): array
+    public function getPermission(): string
     {
-        return [];
+        return Permission\Settings\FbPixel::class;
     }
 
     // --------------------------------------------------------------------------
@@ -45,10 +41,6 @@ class FbPixel implements Interfaces\Component\Settings
      */
     public function get(): array
     {
-        if (!$this->userHasPermission()) {
-            return [];
-        }
-
         /** @var Setting $oProfileId */
         $oProfileId = Factory::factory('ComponentSetting');
         $oProfileId
